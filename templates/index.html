@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simular lanzamiento Moneda</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Simulador de Lanzamiento de Moneda</h1>
+
+        <div class="coin-container">
+            <div class="coin" id="coin">
+                <div class="coin-face coin-heads">CARA</div>
+                <div class="coin-face coin-tails">SELLO</div>
+            </div>
+        </div>
+
+        <div class="choice-section">
+            <div class="choice-label">Elige tu apuesta:</div>
+            <div class="choice-buttons">
+                <button class="choice-btn" id="caraBtn" onclick="selectChoice('cara')">Cara</button>
+                <button class="choice-btn" id="selloBtn" onclick="selectChoice('sello')">Sello</button>
+            </div>
+        </div>
+
+        <div class="bet-section">
+            <span class="choice-label">Valor de la Apuesta:</span>
+            <input type="number" class="bet-input" id="betAmount" value="10" min="1" aria-label="valor">
+        </div>
+
+        <div class="result-message" id="resultMessage"></div>
+
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="flipCoin()">Lanzar Moneda</button>
+            <button class="btn btn-secondary" onclick="newGame()">Nueva Partida</button>
+        </div>
+
+        <div class="stats">
+            <h3>Estadísticas</h3>
+            <div class="stat-item">
+                <span>Veces jugadas:</span>
+                <span class="stat-value" id="gamesPlayed">0</span>
+            </div>
+            <div class="stat-item">
+                <span>Dinero acumulado:</span>
+                <span class="stat-value" id="totalMoney">$0</span>
+            </div>
+            <div class="stat-item">
+                <span>Partidas ganadas:</span>
+                <span class="stat-value" id="gamesWon">0</span>
+            </div>
+            <div class="stat-item">
+                <span>% de acierto:</span>
+                <span class="stat-value" id="winRate">0%</span>
+            </div>
+        </div>
+    </div>
+    <script src="{{url_for('static',filename='scripts.js')}}"></script>
+</body>
+
+</html>
